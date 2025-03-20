@@ -1,4 +1,6 @@
-import os
+
+from jedi.api.refactoring import inline
+
 import geopandas as gpd
 import matplotlib.pyplot as plt
 from cartopy.feature import ShapelyFeature
@@ -6,6 +8,7 @@ import cartopy.crs as ccrs
 import matplotlib.patches as mpatches
 import matplotlib.lines as mlines
 
+plt.ion()
 
 def generate_handles(labels, colors, edge='k', alpha=1):
     """
@@ -76,6 +79,7 @@ def scale_bar(ax, length=20, location=(0.92, 0.95)):
     return ax
 
 # load the datasets
+import os
 outline = gpd.read_file(os.path.abspath('data_files/NI_outline.shp'))
 towns = gpd.read_file(os.path.abspath('data_files/Towns.shp'))
 water = gpd.read_file(os.path.abspath('data_files/Water.shp'))
