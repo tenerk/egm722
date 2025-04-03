@@ -11,8 +11,12 @@ import matplotlib.patches as mpatches
 # try to print the results to the screen using the format method demonstrated in the workbook
 
 # load the necessary data here and transform to a UTM projection
-
+counties = gdp.read_file('data_files/Counties')
+wards = gdp.read_file('data_files/NI_Wards')
 # your analysis goes here...
+counties_itm = counties.to_crs(epsg=2157)
+wards_itm = wards.to_crs(epsg=2157)
+
 
 # ---------------------------------------------------------------------------------------------------------------------
 # below here, you may need to modify the script somewhat to create your map.
